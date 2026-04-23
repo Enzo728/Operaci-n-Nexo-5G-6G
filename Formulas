@@ -1,0 +1,276 @@
+📊 Cuadro de Fórmulas para Diseño de Redes Móviles
+Etapa del Diseño
+Parámetro a calcular
+Fórmula Matemática
+Descripción de Variables
+1. Teoría de Tráfico
+Tráfico Ofrecido (A o ρ)
+A=λ×h <br>(o bien ρ=λ×T)
+λ: Tasa de llamadas entrantes por unidad de tiempo.<br>h o T: Duración media de la llamada
+.
+1. Teoría de Tráfico
+Probabilidad de Bloqueo (Erlang B)
+P 
+b
+​
+ =B(A,m)= 
+∑ 
+i=0
+m
+​
+  
+i!
+A 
+i
+ 
+​
+ 
+m!
+A 
+m
+ 
+​
+ 
+​
+ 
+P 
+b
+​
+ : Probabilidad de bloqueo (llamada perdida).<br>A: Tráfico total ofrecido en Erlangs.<br>m (o N): Número de recursos/canales
+.
+1. Teoría de Tráfico
+Probabilidad de Espera (Erlang C)
+P 
+W
+​
+ = 
+∑ 
+i=0
+N−1
+​
+  
+i!
+A 
+i
+ 
+​
+ + 
+N!
+A 
+N
+ 
+​
+  
+N−A
+N
+​
+ 
+N!
+A 
+N
+ 
+​
+  
+N−A
+N
+​
+ 
+​
+ 
+Se usa cuando las llamadas no se pierden, sino que entran en una cola (Call Centers o transmisión de datos)
+.
+1. Teoría de Tráfico
+Bloqueo (Población Finita - Engset)
+E(N,A,S)= 
+∑ 
+i=0
+N
+​
+ A 
+i
+ ( 
+i
+S
+​
+ )
+A 
+N
+ ( 
+N
+S
+​
+ )
+​
+ 
+S: Número de orígenes (usuarios). Útil cuando la cantidad de usuarios en la celda es pequeña y acotada
+.
+2. Balance de Enlace (Link Budget)
+Potencia Isótropa Radiada Equivalente (PIRE / EIRP)
+PIRE(dBm)=Pot+G−α
+Pot: Potencia del transceptor (Tx).<br>G: Ganancia de la antena transmisora.<br>α: Suma de pérdidas de cables, conectores y combinadores
+.
+2. Balance de Enlace (Link Budget)
+Atenuación Compensable Máxima (MAPL) - Enlace Descendente
+MAPL 
+DL
+​
+ =PIRE 
+BTS
+​
+ −Sensib 
+MS
+​
+ +G 
+MS
+​
+ +G 
+H
+​
+ +M 
+a
+ˊ
+ rgenes
+PIRE 
+BTS
+​
+ : PIRE de la Estación Base.<br>Sensib 
+MS
+​
+ : Sensibilidad del terminal móvil.<br>G 
+MS
+​
+ : Ganancia de la antena móvil.<br>G 
+H
+​
+ : Ganancia por altura
+.
+2. Balance de Enlace (Link Budget)
+Atenuación Compensable Máxima (MAPL) - Enlace Ascendente
+MAPL 
+UL
+​
+ =PIRE 
+MS
+​
+ −Sensib 
+BTS
+​
+ +G 
+BTS
+​
+ +G 
+Div
+​
+ −α+M 
+a
+ˊ
+ rgenes
+G 
+Div
+​
+ : Ganancia por diversidad en recepción.<br>α: Pérdidas en cable coaxial/conectores en la BTS
+.
+3. Modelos de Propagación
+Modelo Okumura-Hata (Área Urbana)
+L 
+50
+​
+ (dB)=69.55+26.16logf 
+c
+​
+ −13.82logh 
+te
+​
+ −a(h 
+re
+​
+ )+(44.9−6.55logh 
+te
+​
+ )logd
+f 
+c
+​
+ : Frecuencia (MHz).<br>h 
+te
+​
+ : Altura antena transmisora (m).<br>a(h 
+re
+​
+ ): Factor de corrección de altura del móvil.<br>d: Distancia o radio de celda (km)
+.
+3. Modelos de Propagación
+Modelo SUI (Urbano/Suburbano/Rural)
+PL=A+10γlog 
+10
+​
+ ( 
+d 
+0
+​
+ 
+d
+​
+ )+X 
+f
+​
+ +X 
+h
+​
+ +s
+γ: Exponente de pérdidas de trayecto.<br>d 
+0
+​
+ : Distancia de referencia (100 m).<br>X 
+f
+​
+ , X 
+h
+​
+ : Factores corrección de frec/altura.<br>s: Margen de desvanecimiento por sombra
+.
+3. Modelos de Propagación
+Modelo Walfisch-Ikegami (Cost-231)
+L 
+Total
+​
+ =L 
+0
+​
+ +L 
+rts
+​
+ +L 
+msd
+​
+ 
+L 
+0
+​
+ : Pérdidas espacio libre.<br>L 
+rts
+​
+ : Pérdidas azotea-nivel de calle.<br>L 
+msd
+​
+ : Difracciones múltiples
+. Ideal para el entorno financiero de rascacielos.
+4. Miscelánea
+Canal físico a Frecuencia (ARFCN - Ejemplo GSM-R)
+F 
+d
+​
+ (n)=890+0.2×(n−1024) <br>F 
+u
+​
+ (n)=F 
+d
+​
+ (n)+45
+F 
+d
+​
+ (n): Frecuencia Downlink en MHz.<br>F 
+u
+​
+ (n): Frecuencia Uplink en MHz.<br>n: Número de canal (955 al 973)
